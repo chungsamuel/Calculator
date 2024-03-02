@@ -237,6 +237,51 @@ theme_override_fonts/font = ExtResource("1_uxdyf")
 theme_override_font_sizes/font_size = 64
 text = "CLEAR"
 
+[node name="number0" type="Button" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -81.5
+offset_right = 99.0
+offset_bottom = 81.5
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_uxdyf")
+theme_override_font_sizes/font_size = 128
+text = "0
+"
+
+[node name="leftparenoperator" type="Button" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = -81.5
+offset_right = -100.0
+offset_bottom = 81.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_uxdyf")
+theme_override_font_sizes/font_size = 128
+text = "("
+
+[node name="rightparenopeator" type="Button" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -81.5
+offset_right = -30.0
+offset_bottom = 81.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_uxdyf")
+theme_override_font_sizes/font_size = 128
+text = ")"
+
 [connection signal="pressed" from="number1" to="." method="_on_number_1_pressed"]
 [connection signal="pressed" from="number2" to="." method="_on_number_2_pressed"]
 [connection signal="pressed" from="number3" to="." method="_on_number_3_pressed"]
@@ -252,3 +297,6 @@ text = "CLEAR"
 [connection signal="pressed" from="divideoperator" to="." method="_on_divideoperator_pressed"]
 [connection signal="pressed" from="equaloperator" to="." method="_on_equaloperator_pressed"]
 [connection signal="pressed" from="clear" to="." method="_on_clear_pressed"]
+[connection signal="pressed" from="number0" to="." method="_on_number_0_pressed"]
+[connection signal="pressed" from="leftparenoperator" to="." method="_on_leftparenoperator_pressed"]
+[connection signal="pressed" from="rightparenopeator" to="." method="_on_rightparenopeator_pressed"]

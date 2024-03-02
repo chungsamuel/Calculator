@@ -176,8 +176,8 @@ func _on_equaloperator_pressed():
 	print(printme)
 	var answer = evaluate_postfix(printme)
 	print(answer)
-	$input.text = answer
-	$input.show()
+	$output.text = answer
+	$output.show()
 
 
 func _on_plusoperator_pressed():

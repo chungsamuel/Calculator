@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="Calculator"
+run/main_scene="res://buttons.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=1080
 
 [dotnet]
 

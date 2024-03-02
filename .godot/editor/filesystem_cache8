@@ -1,3 +1,12 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1709358980
+::res://::1709361521
+buttons.tscn::PackedScene::1154852756013463749::1709361399::0::1::::<><>::uid://kqhslcgh7qoa::::res://fonts/Xolonium-Regular.ttf<>res://number1.gd<>res://number2.gd
 icon.svg::CompressedTexture2D::1822047452186780546::1709358970::1709358981::1::::<><>::
+number1.gd::GDScript::-1::1709361316::0::1::::<>Button<>::
+number2.gd::GDScript::-1::1709361354::0::1::::<>Button<>::
+README.md::TextFile::-1::1709359152::0::1::::<><>::
+thung.tscn::PackedScene::626165221177882766::1709361321::0::1::::<><>::
+::res://fonts/::1709359997
+FONTLOG.txt::TextFile::-1::1698070663::0::1::::<><>::
+LICENSE.txt::TextFile::-1::1698070663::0::1::::<><>::
+Xolonium-Regular.ttf::FontFile::735376224814637644::1698070663::1709359997::1::::<><>::

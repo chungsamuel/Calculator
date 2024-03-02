@@ -2,7 +2,7 @@ extends CanvasLayer
 
 var numbertest
 var operator_array = []
-var clear: bool = false
+var clear: bool = true
 var test_array = [1,2,3]
 
 # Called when the node enters the scene tree for the first time.
@@ -31,6 +31,7 @@ func get_priority(c):
 			return 2
 		_:
 			return 999
+
 
 func convert_to_postfix(infix: String):
 	var operator_stack = []
@@ -74,10 +75,51 @@ func convert_to_postfix(infix: String):
 		postfix = postfix + top_operator
 		print("here 5")
 	return postfix
+
+func evaluate_postfix(postfix: String):
+	var value_stack = []
+	var index: int = 0
 	
+	while postfix.length() != index:
+		var next_character = postfix[index]
+		if next_character.is_valid_int():
+			value_stack.push_back(next_character)
+			index += 1
+		else:
+			match next_character:
+				"+":
+					var operand_two = int(value_stack.pop_back())
+					var operand_one = int(value_stack.pop_back())
+					var result = operand_one + operand_two
+					value_stack.push_back(str(result))
+					index += 1
+				"-":
+					var operand_two = int(value_stack.pop_back())
+					var operand_one = int(value_stack.pop_back())
+					var result = operand_one - operand_two
+					value_stack.push_back(str(result))
+					index += 1
+				"*":
+					var operand_two = int(value_stack.pop_back())
+					var operand_one = int(value_stack.pop_back())
+					var result = operand_one * operand_two
+					value_stack.push_back(str(result))
+					index += 1
+				"/":
+					var operand_two = int(value_stack.pop_back())
+					var operand_one = int(value_stack.pop_back())
+					var result = operand_one / operand_two
+					value_stack.push_back(str(result))
+					index += 1
+				_:
+					index += 1
+	return value_stack.back()
+
+
+
 func process_numbers(number):
-	if !clear:
-		clear = true
+	if clear:
+		clear = false
 		$input.text = number
 		print(number)
 	else:
@@ -102,10 +144,61 @@ func _on_equaloperator_pressed():
 	#var temp3 = operator_array.pop_front()
 	#if temp2 == "+":
 		#print(temp1 + temp3)
+	print($input.get_text())
 	var printme = convert_to_postfix($input.get_text())
 	print(printme)
+	var answer = evaluate_postfix(printme)
+	print(answer)
+	$input.text = answer
+	$input.show()
 
 
 func _on_plusoperator_pressed():
 	process_numbers("+")
 	operator_array.append("+")
+
+
+func _on_number_3_pressed():
+	process_numbers("3")
+
+
+func _on_number_4_pressed():
+	process_numbers("4")
+
+
+func _on_number_5_pressed():
+	process_numbers("5")
+
+
+func _on_number_6_pressed():
+	process_numbers("6")
+
+
+func _on_number_7_pressed():
+	process_numbers("7")
+
+
+func _on_number_8_pressed():
+	process_numbers("8")
+
+
+func _on_number_9_pressed():
+	process_numbers("9")
+
+
+func _on_minusoperator_pressed():
+	process_numbers("-")
+
+
+func _on_timesoperator_pressed():
+	process_numbers("*")
+
+
+func _on_divideoperator_pressed():
+	process_numbers("/")
+
+
+func _on_clear_pressed():
+	$input.text = "0"
+	$input.show()
+	clear = true

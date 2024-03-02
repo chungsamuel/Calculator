@@ -1,5 +1,4 @@
 res://buttons.tscn
-res://number1.gd
-res://main.tscn
-res://thing.tscn
 res://buttons.gd
+res://thing.tscn
+res://main.tscn

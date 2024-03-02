@@ -221,7 +221,34 @@ theme_override_fonts/font = ExtResource("1_uxdyf")
 theme_override_font_sizes/font_size = 128
 text = "0"
 
+[node name="clear" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_uxdyf")
+theme_override_font_sizes/font_size = 64
+text = "CLEAR"
+
 [connection signal="pressed" from="number1" to="." method="_on_number_1_pressed"]
 [connection signal="pressed" from="number2" to="." method="_on_number_2_pressed"]
+[connection signal="pressed" from="number3" to="." method="_on_number_3_pressed"]
+[connection signal="pressed" from="number4" to="." method="_on_number_4_pressed"]
+[connection signal="pressed" from="number5" to="." method="_on_number_5_pressed"]
+[connection signal="pressed" from="number6" to="." method="_on_number_6_pressed"]
+[connection signal="pressed" from="number7" to="." method="_on_number_7_pressed"]
+[connection signal="pressed" from="number8" to="." method="_on_number_8_pressed"]
+[connection signal="pressed" from="number9" to="." method="_on_number_9_pressed"]
 [connection signal="pressed" from="plusoperator" to="." method="_on_plusoperator_pressed"]
+[connection signal="pressed" from="minusoperator" to="." method="_on_minusoperator_pressed"]
+[connection signal="pressed" from="timesoperator" to="." method="_on_timesoperator_pressed"]
+[connection signal="pressed" from="divideoperator" to="." method="_on_divideoperator_pressed"]
 [connection signal="pressed" from="equaloperator" to="." method="_on_equaloperator_pressed"]
+[connection signal="pressed" from="clear" to="." method="_on_clear_pressed"]

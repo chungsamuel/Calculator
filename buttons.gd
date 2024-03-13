@@ -100,26 +100,26 @@ func evaluate_postfix(postfix: String):
 		else:
 			match next_character:
 				"+":
-					var operand_two = int(value_stack.pop_back())
-					var operand_one = int(value_stack.pop_back())
+					var operand_two = float(value_stack.pop_back())
+					var operand_one = float(value_stack.pop_back())
 					var result = operand_one + operand_two
 					value_stack.push_back(str(result))
 					index += 1
 				"-":
-					var operand_two = int(value_stack.pop_back())
-					var operand_one = int(value_stack.pop_back())
+					var operand_two = float(value_stack.pop_back())
+					var operand_one = float(value_stack.pop_back())
 					var result = operand_one - operand_two
 					value_stack.push_back(str(result))
 					index += 1
 				"*":
-					var operand_two = int(value_stack.pop_back())
-					var operand_one = int(value_stack.pop_back())
+					var operand_two = float(value_stack.pop_back())
+					var operand_one = float(value_stack.pop_back())
 					var result = operand_one * operand_two
 					value_stack.push_back(str(result))
 					index += 1
 				"/":
-					var operand_two = int(value_stack.pop_back())
-					var operand_one = int(value_stack.pop_back())
+					var operand_two = float(value_stack.pop_back())
+					var operand_one = float(value_stack.pop_back())
 					var result = operand_one / operand_two
 					value_stack.push_back(str(result))
 					index += 1
@@ -174,9 +174,9 @@ func _on_equaloperator_pressed():
 	print($input.get_text())
 	var printme = convert_to_postfix($input.get_text())
 	print(printme)
-	var answer = evaluate_postfix(printme)
+	var answer = float(evaluate_postfix(printme))
 	print(answer)
-	$output.text = answer
+	$output.text = String.num(snappedf(answer, 0.0001))
 	$output.show()
 
 

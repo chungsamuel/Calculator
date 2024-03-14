@@ -4,7 +4,7 @@ var numbertest
 var operator_array = []
 var clear: bool = true
 var test_array = [1,2,3]
-var test_string: String = "12 + 3 * 4 - 6"
+var value_string: String = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -88,6 +88,7 @@ func convert_to_postfix(infix: String):
 	return postfix
 
 func evaluate_postfix(postfix: String):
+	print(postfix)
 	var string_stack = postfix.rsplit(" ")
 	var value_stack = []
 	var index: int = 0
@@ -134,22 +135,27 @@ func process_numbers(number):
 		"(",")":
 			if clear:
 				clear = false
+				value_string = number + " "
 				$input.text = number
 				print(number)
 			else:
-				$input.text = $input.get_text() + " " + number + " "
+				value_string = value_string + " " + number + " "
+				$input.text = $input.get_text() + number
 				$input.show()
 				print(number)
 		"+","-","*","/":
-			$input.text = $input.get_text() + " " + number + " "
+			value_string = value_string + " " + number + " "
+			$input.text = $input.get_text() + number
 			$input.show()
 			print(number)
 		"1", "2", "3", "4", "5", "6", "7", "8", "9", "0":
 			if clear:
 				clear = false
+				value_string = number
 				$input.text = number
 				print(number)
 			else:
+				value_string = value_string + number
 				$input.text = $input.get_text() + number
 				$input.show()
 				print(number)
@@ -171,12 +177,12 @@ func _on_equaloperator_pressed():
 	#var temp3 = operator_array.pop_front()
 	#if temp2 == "+":
 		#print(temp1 + temp3)
-	print($input.get_text())
-	var printme = convert_to_postfix($input.get_text())
+	print(value_string)
+	var printme = convert_to_postfix(value_string)
 	print(printme)
 	var answer = float(evaluate_postfix(printme))
 	print(answer)
-	$output.text = String.num(snappedf(answer, 0.0001))
+	$output.text = String.num(snappedf(answer, 0.00001))
 	$output.show()
 
 
@@ -228,6 +234,9 @@ func _on_divideoperator_pressed():
 func _on_clear_pressed():
 	$input.text = "0"
 	$input.show()
+	$output.text = ""
+	$output.show()
+	value_string = ""
 	clear = true
 
 
